@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="fleet-be:war">
+    <output-path>$PROJECT_DIR$/fleet-be/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>fleet-be</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="fleet-be-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="fleet-be:war exploded" />
+    </root>
+  </artifact>
+</component>

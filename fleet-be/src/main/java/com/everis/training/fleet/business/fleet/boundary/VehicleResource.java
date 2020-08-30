@@ -1,14 +1,13 @@
 package com.everis.training.fleet.business.fleet.boundary;
 
 
+import com.everis.training.fleet.business.fleet.control.VehicleController;
+
 import javax.ejb.Stateless;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import javax.inject.Inject;
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
+
 
 @Path("v1/vehicles")
 @Produces({ MediaType.APPLICATION_JSON })
@@ -16,9 +15,38 @@ import javax.ws.rs.core.Response;
 @Stateless
 public class VehicleResource {
 
+  VehicleController con;
   @Path("{vehicleId}")
   @GET
-  public Response retrieveVehicle(@PathParam("vehicleId") final Long id) {
+  public Response retrieveVehicle(@PathParam("vehicleId") final String vin) {
+    return Response.ok().entity(con.findVehicle(vin)).build();
+  }
+/*
+  @Path("{vehicleId}")
+  @GET
+  public Response listVehicles(@PathParam("vehicleId") final String vin) {
+    con.getAllVehicles();
+    return Response.ok().entity(con.findVehicle(vin)).build();
+  }
+
+  @Path("{vehicleId}")
+  @POST
+  public Response addVehicle(@PathParam("vehicleId") final Long id) {
+    con.add();
     return Response.ok().entity(String.format("Mock: here your vehicle %s", id)).build();
   }
+
+  @Path("{vehicleId}")
+  @PUT
+  public Response updateVehicle(@PathParam("vehicleId") final Long id) {
+    con.update();
+    return Response.ok().entity(String.format("Mock: here your vehicle %s", id)).build();
+  }
+
+  @Path("{vehicleId}")
+  @DELETE
+  public Response deleteVehicle(@PathParam("vehicleId") final String vin) {
+    con.delete(vin);
+    return Response.ok().entity(String.format("Mock: here your vehicle %s", vin)).build();
+  }*/
 }
