@@ -4,7 +4,6 @@ package com.everis.training.fleet.business.fleet.boundary;
 import com.everis.training.fleet.business.fleet.control.VehicleController;
 
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
@@ -19,7 +18,7 @@ public class VehicleResource {
   @Path("{vehicleId}")
   @GET
   public Response retrieveVehicle(@PathParam("vehicleId") final String vin) {
-    return Response.ok().entity(con.findVehicle(vin)).build();
+    return Response.ok().entity(String.format("Mock: here your vehicle %s", vin)).build();
   }
 /*
   @Path("{vehicleId}")
