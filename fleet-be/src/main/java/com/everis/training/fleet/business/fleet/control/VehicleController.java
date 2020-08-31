@@ -19,33 +19,23 @@ public class VehicleController {
         return repo.getAll();
     }
 
-    public void add() {
-        Vehicle vehicle = new Vehicle();
-        vehicle.setFleet(1);
-        vehicle.setBrand("BMW");
-        vehicle.setModel("320d");
-        vehicle.setPlate("1111JTÑ");
-        vehicle.setVin("123456789qwertyu9");
-        repo.saveVehicle(vehicle);
+    public void add(Vehicle vehicle) {
+        if (vehicle.getVin().length()==17){
+            repo.saveVehicle(vehicle);
+        }
     }
 
     public void delete(String vin) {
         if (vin.length() == 17){
             repo.deleteVehicle(vin);
-        }else{
-            System.out.println("Revise que el VIN que ha introducido contenga 17 caracteres.");
         }
 
     }
 
-    public void update(){
-        Vehicle vehicle = new Vehicle();
-        vehicle.setFleet(1);
-        vehicle.setBrand("");
-        vehicle.setModel("");
-        vehicle.setPlate("");
-        vehicle.setVin("");
-        repo.updateVehicle(vehicle);
+    public void update(Vehicle vehicle){
+        if (vehicle.getVin().length()==17){
+            repo.updateVehicle(vehicle);
+        }
     }
 
     public Vehicle findVehicle(String vin){

@@ -6,8 +6,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table (name="vehicles", schema = "public")
-@NamedQuery(name="Vehicle.findAll", query="SELECT vehicle FROM Vehicle vehicle")
+@Table (name="vehicles")
+//@NamedQuery(name="Vehicle.findAll", query="SELECT vehicle FROM Vehicle vehicle")
 public class Vehicle implements Serializable {
     private static final long serialVersionUID = 1L;
     @Column(name = "fleet")
@@ -60,4 +60,5 @@ public class Vehicle implements Serializable {
     public void setVin(String vin) {
         this.vin = vin;
     }
+
 }

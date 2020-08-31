@@ -2,6 +2,8 @@ package com.everis.training.fleet.business.fleet.boundary;
 
 
 import com.everis.training.fleet.business.fleet.control.VehicleController;
+import com.everis.training.fleet.business.fleet.entity.Vehicle;
+import com.google.gson.Gson;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -21,35 +23,35 @@ public class VehicleResource {
   @Path("{vehicleId}")
   @GET
   public Response retrieveVehicle(@PathParam("vehicleId") final String vin) {
-    con.add();
-    return Response.ok().entity(String.format("Mock: here your vehicle %s", vin)).build();
-  }
-/*
-  @Path("{vehicleId}")
-  @GET
-  public Response listVehicles(@PathParam("vehicleId") final String vin) {
-    con.getAllVehicles();
+
     return Response.ok().entity(con.findVehicle(vin)).build();
   }
 
-  @Path("{vehicleId}")
-  @POST
-  public Response addVehicle(@PathParam("vehicleId") final Long id) {
-    con.add();
-    return Response.ok().entity(String.format("Mock: here your vehicle %s", id)).build();
+  @GET
+  public Response listVehicles() {
+    return Response.ok().entity(con.getAllVehicles()).build();
   }
 
-  @Path("{vehicleId}")
+  @POST
+  public Response addVehicle( String json) {
+    Gson gson = new Gson();
+    Vehicle v = gson.fromJson(json, Vehicle.class);
+    con.add(v);
+    return Response.ok().entity(String.format("The vehicle has been added successfully!")).build();
+  }
+
   @PUT
-  public Response updateVehicle(@PathParam("vehicleId") final Long id) {
-    con.update();
-    return Response.ok().entity(String.format("Mock: here your vehicle %s", id)).build();
+  public Response updateVehicle(String json) {
+    Gson gson = new Gson();
+    Vehicle v = gson.fromJson(json, Vehicle.class);
+    con.update(v);
+    return Response.ok().entity(String.format("The vehicle has been updated successfully!")).build();
   }
 
   @Path("{vehicleId}")
   @DELETE
   public Response deleteVehicle(@PathParam("vehicleId") final String vin) {
     con.delete(vin);
-    return Response.ok().entity(String.format("Mock: here your vehicle %s", vin)).build();
-  }*/
+    return Response.ok().entity(String.format("The vehicle with vin: %s has been deleted successfully!", vin)).build();
+  }
 }
