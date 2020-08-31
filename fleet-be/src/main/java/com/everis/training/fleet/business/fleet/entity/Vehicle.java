@@ -1,10 +1,12 @@
 package com.everis.training.fleet.business.fleet.entity;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table (name="vehicles")
+@Table (name="vehicles", schema = "public")
 @NamedQuery(name="Vehicle.findAll", query="SELECT vehicle FROM Vehicle vehicle")
 public class Vehicle implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -17,7 +19,6 @@ public class Vehicle implements Serializable {
     @Column(name = "plate")
     private String plate;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String vin;
 
     public int getFleet() {

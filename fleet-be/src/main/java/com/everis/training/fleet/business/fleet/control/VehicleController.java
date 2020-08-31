@@ -12,7 +12,7 @@ import java.util.List;
 @ApplicationScoped
 public class VehicleController {
 
-
+    @Inject
     VehicleRepository repo;
 
     public List<Vehicle> getAllVehicles() {
@@ -24,7 +24,7 @@ public class VehicleController {
         vehicle.setFleet(1);
         vehicle.setBrand("BMW");
         vehicle.setModel("320d");
-        vehicle.setPlate("1111JTC");
+        vehicle.setPlate("1111JTÑ");
         vehicle.setVin("123456789qwertyu9");
         repo.saveVehicle(vehicle);
     }
