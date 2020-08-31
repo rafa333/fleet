@@ -6,14 +6,13 @@ package com.everis.training.fleet.business.fleet.control;
 
 import com.everis.training.fleet.business.fleet.entity.Vehicle;
 
-import javax.ejb.*;
+import javax.faces.bean.ApplicationScoped;
 import javax.persistence.*;
 import java.util.List;
 
-@LocalBean
-@Stateless
+@ApplicationScoped
 public class VehicleRepository {
-    @PersistenceContext
+    @PersistenceContext(unitName = "fleet")
     EntityManager em;
     public void saveVehicle(Vehicle vehicle){
         em.persist(vehicle);

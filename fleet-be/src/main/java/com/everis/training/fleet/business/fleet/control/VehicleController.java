@@ -10,10 +10,9 @@ import javax.inject.Inject;
 import java.util.List;
 
 @ApplicationScoped
-@ManagedBean
 public class VehicleController {
 
-    @Inject
+
     VehicleRepository repo;
 
     public List<Vehicle> getAllVehicles() {
