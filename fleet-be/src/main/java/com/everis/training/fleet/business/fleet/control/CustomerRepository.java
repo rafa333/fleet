@@ -1,5 +1,6 @@
 package com.everis.training.fleet.business.fleet.control;
 
+import com.everis.training.fleet.business.fleet.boundary.Reserve;
 import com.everis.training.fleet.business.fleet.entity.Customer;
 import com.everis.training.fleet.business.fleet.entity.Fleet;
 import com.google.gson.Gson;
@@ -40,10 +41,10 @@ public class CustomerRepository {
         em.remove(customer);
     }
 
-    public void reserveCar(Integer id, String vin) {
+    public void reserveCar(Reserve reserve) {
         Customer c;
-        c=em.find(Customer.class, id);
-        c.setVehicle(vin);
+        c=em.find(Customer.class, reserve.getIdcustomer());
+        c.setVehicle(reserve.getVin());
         em.merge(c);
     }
 }

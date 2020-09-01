@@ -38,8 +38,8 @@ public class CustomerResource {
 
     @Path("reserve")
     @PUT
-    public Response reserveCar(String json){
-        con.reserveCar(json);
+    public Response reserveCar(Reserve reserve){
+        con.reserveCar(reserve);
         return Response.ok().entity(String.format("The reserve has been done successfully!")).build();
     }
 

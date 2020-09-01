@@ -1,5 +1,6 @@
 package com.everis.training.fleet.business.fleet.control;
 
+import com.everis.training.fleet.business.fleet.boundary.Reserve;
 import com.everis.training.fleet.business.fleet.entity.Customer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -35,12 +36,8 @@ public class CustomerController {
         repo.deleteVehicle(id);
     }
 
-    public void reserveCar(String json) {
-        JsonParser parser = new JsonParser();
-        JsonObject jsonObject = (JsonObject) parser.parse(json);
-        int idcustomer =Integer.parseInt(String.valueOf(jsonObject.get("idcustomer")));
-        String vin =String.valueOf(jsonObject.get("vin"));
-        repo.reserveCar(idcustomer, vin);
+    public void reserveCar(Reserve reserve) {
+        repo.reserveCar(reserve);
     }
 
 
