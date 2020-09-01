@@ -43,4 +43,11 @@ public class CustomerRepository {
         customer = em.find(Customer.class, id);
         em.remove(customer);
     }
+
+    public void reserveCar(Integer id, String vin) {
+        Customer c;
+        c=em.find(Customer.class, id);
+        c.setVehicle(vin);
+        em.merge(c);
+    }
 }

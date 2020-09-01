@@ -38,6 +38,13 @@ public class CustomerResource {
         return Response.ok().entity(String.format("The customer has been added successfully!")).build();
     }
 
+    @Path("reserve")
+    @PUT
+    public Response reserveCar(String json){
+        con.reserveCar(json);
+        return Response.ok().entity(String.format("The reserve has been done successfully!")).build();
+    }
+
     @PUT
     public Response updateCustomer(String json){
         Gson gson = new Gson();
