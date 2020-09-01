@@ -24,4 +24,8 @@ public class CustomerController {
     public void update(Customer customer) {
         repo.updateCustomer(customer);
     }
+
+    public void delete(Integer id) {
+        repo.deleteVehicle(id);
+    }
 }

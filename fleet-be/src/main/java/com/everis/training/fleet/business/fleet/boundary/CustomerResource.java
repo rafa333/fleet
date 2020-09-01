@@ -45,4 +45,11 @@ public class CustomerResource {
         con.update(c);
         return Response.ok().entity(String.format("The customer has been updated successfully!")).build();
     }
+
+    @Path("{customerId}")
+    @DELETE
+    public Response deleteCustomer(@PathParam("customerId") final Integer id) {
+        con.delete(id);
+        return Response.ok().entity(String.format("The customer with id: %s has been deleted successfully!", id)).build();
+    }
 }

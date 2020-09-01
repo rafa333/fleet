@@ -37,4 +37,10 @@ public class CustomerRepository {
     public void updateCustomer(Customer customer) {
         em.merge(customer);
     }
+
+    public void deleteVehicle(Integer id) {
+        Customer customer;
+        customer = em.find(Customer.class, id);
+        em.remove(customer);
+    }
 }
