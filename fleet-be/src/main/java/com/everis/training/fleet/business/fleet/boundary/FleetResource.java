@@ -36,4 +36,11 @@ public class FleetResource {
         con.add(f);
         return Response.ok().entity(String.format("The fleet has been added successfully!")).build();
     }
+
+    @PUT
+    public Response updateFleet(String json){
+        Gson gson = new Gson();
+        Fleet f = gson.fromJson(json, Fleet.class);
+        con.update(f);
+        return Response.ok().entity(String.format("The fleet has been updated successfully!")).build();    }
 }

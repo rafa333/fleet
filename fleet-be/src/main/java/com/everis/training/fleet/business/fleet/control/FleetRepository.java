@@ -30,4 +30,8 @@ public class FleetRepository {
         em.persist(fleet);
         em.flush();
     }
+
+    public void updateFleet(Fleet fleet) {
+        em.merge(fleet);
+    }
 }

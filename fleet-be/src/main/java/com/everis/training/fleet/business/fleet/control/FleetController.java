@@ -21,4 +21,8 @@ public class FleetController {
     public void add(Fleet fleet) {
         repo.saveFleet(fleet);
     }
+
+    public void update(Fleet fleet) {
+        repo.updateFleet(fleet);
+    }
 }
