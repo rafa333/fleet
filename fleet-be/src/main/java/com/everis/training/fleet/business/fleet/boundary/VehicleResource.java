@@ -31,6 +31,12 @@ public class VehicleResource {
     return Response.ok().entity(con.getAllVehicles()).build();
   }
 
+  @Path("free")
+  @GET
+  public Response listFreeVehicles() {
+    return Response.ok().entity(con.getAllFreeVehicles()).build();
+  }
+
   @POST
   public Response addVehicle(String json) {
     Gson gson = new Gson();

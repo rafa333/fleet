@@ -4,6 +4,7 @@ package com.everis.training.fleet.business.fleet.control;
 //Database connection and take the data
 
 
+import com.everis.training.fleet.business.fleet.entity.Customer;
 import com.everis.training.fleet.business.fleet.entity.Vehicle;
 import com.google.gson.Gson;
 
@@ -35,6 +36,13 @@ public class VehicleRepository {
         Gson gson = new Gson();
         String jsonVehicleList = gson.toJson((List<Vehicle>) q.getResultList());
         return jsonVehicleList;
+    }
+
+    public String getAllFreeVehicles(){
+        Query q = em.createQuery("SELECT vehicle FROM Vehicle vehicle WHERE vehicle.vin NOT IN (SELECT customer.vehicle FROM Customer customer WHERE customer.vehicle NOT IN ('null'))");
+        Gson gson = new Gson();
+        String jsonFreeVehicleList = gson.toJson((List<Vehicle>) q.getResultList());
+        return jsonFreeVehicleList;
     }
 
     public String findVehicle(String vin){

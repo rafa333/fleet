@@ -17,6 +17,9 @@ public class VehicleController {
     public String getAllVehicles() {
         return repo.getAll();
     }
+    public String getAllFreeVehicles() {
+        return repo.getAllFreeVehicles();
+    }
 
     public void add(Vehicle vehicle) {
         if (vehicle.getVin().length()==17){
