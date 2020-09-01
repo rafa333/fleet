@@ -1,7 +1,6 @@
 package com.everis.training.fleet.business.fleet.control;
 
 import com.everis.training.fleet.business.fleet.entity.Fleet;
-import com.everis.training.fleet.business.fleet.entity.Vehicle;
 import com.google.gson.Gson;
 
 import javax.faces.bean.ApplicationScoped;
@@ -19,5 +18,11 @@ public class FleetRepository {
         Gson gson = new Gson();
         String jsonFleetList = gson.toJson((List <Fleet>) q.getResultList());
         return jsonFleetList;
+    }
+
+    public String findFleet(Integer id) {
+        Gson gson = new Gson();
+        String jsonFleet = gson.toJson(em.find(Fleet.class, id));
+        return jsonFleet;
     }
 }

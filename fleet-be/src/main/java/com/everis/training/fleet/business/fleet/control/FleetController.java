@@ -11,4 +11,8 @@ public class FleetController {
     public String getAllFleets(){
         return repo.getAll();
     }
+
+    public String findFleet(Integer id) {
+        return repo.findFleet(id);
+    }
 }
