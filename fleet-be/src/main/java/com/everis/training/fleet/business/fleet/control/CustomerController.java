@@ -1,5 +1,7 @@
 package com.everis.training.fleet.business.fleet.control;
 
+import com.everis.training.fleet.business.fleet.entity.Customer;
+
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
 
@@ -13,5 +15,13 @@ public class CustomerController {
 
     public String getAllCustomers() {
         return repo.getAll();
+    }
+
+    public void add(Customer customer) {
+        repo.saveCustomer(customer);
+    }
+
+    public void update(Customer customer) {
+        repo.updateCustomer(customer);
     }
 }

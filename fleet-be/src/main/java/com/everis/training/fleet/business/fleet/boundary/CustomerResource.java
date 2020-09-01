@@ -1,6 +1,9 @@
 package com.everis.training.fleet.business.fleet.boundary;
 
 import com.everis.training.fleet.business.fleet.control.CustomerController;
+import com.everis.training.fleet.business.fleet.entity.Customer;
+import com.everis.training.fleet.business.fleet.entity.Fleet;
+import com.google.gson.Gson;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -18,7 +21,7 @@ public class CustomerResource {
 
     @Path("{customerId}")
     @GET
-    public Response retrieveFleet(@PathParam("customerId") final Integer id) {
+    public Response retrieveCustomer(@PathParam("customerId") final Integer id) {
         return Response.ok().entity(con.findCustomer(id)).build();
     }
 
@@ -27,5 +30,19 @@ public class CustomerResource {
         return Response.ok().entity(con.getAllCustomers()).build();
     }
 
-    
+    @POST
+    public Response addCustomer(String json){
+        Gson gson = new Gson();
+        Customer c = gson.fromJson(json, Customer.class);
+        con.add(c);
+        return Response.ok().entity(String.format("The customer has been added successfully!")).build();
+    }
+
+    @PUT
+    public Response updateCustomer(String json){
+        Gson gson = new Gson();
+        Customer c = gson.fromJson(json, Customer.class);
+        con.update(c);
+        return Response.ok().entity(String.format("The customer has been updated successfully!")).build();
+    }
 }

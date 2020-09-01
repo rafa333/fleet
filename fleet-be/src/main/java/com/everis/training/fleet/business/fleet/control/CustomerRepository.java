@@ -28,4 +28,13 @@ public class CustomerRepository {
         String jsonCustomerList = gson.toJson((List<Fleet>) q.getResultList());
         return jsonCustomerList;
     }
+
+    public void saveCustomer(Customer customer) {
+        em.persist(customer);
+        em.flush();
+    }
+
+    public void updateCustomer(Customer customer) {
+        em.merge(customer);
+    }
 }
