@@ -8,6 +8,8 @@ import javax.faces.bean.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
 
 @ApplicationScoped
 public class CustomerRepository {
@@ -18,5 +20,12 @@ public class CustomerRepository {
         Gson gson = new Gson();
         String jsonCustomer = gson.toJson(em.find(Customer.class, id));
         return jsonCustomer;
+    }
+
+    public String getAll() {
+        Query q = em.createQuery("SELECT customer FROM Customer customer", Customer.class);
+        Gson gson = new Gson();
+        String jsonCustomerList = gson.toJson((List<Fleet>) q.getResultList());
+        return jsonCustomerList;
     }
 }

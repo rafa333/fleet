@@ -10,4 +10,8 @@ public class CustomerController {
     public String findCustomer(Integer id) {
         return repo.findCustomer(id);
     }
+
+    public String getAllCustomers() {
+        return repo.getAll();
+    }
 }

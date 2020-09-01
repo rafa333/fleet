@@ -21,4 +21,11 @@ public class CustomerResource {
     public Response retrieveFleet(@PathParam("customerId") final Integer id) {
         return Response.ok().entity(con.findCustomer(id)).build();
     }
+
+    @GET
+    public Response listCustomers() {
+        return Response.ok().entity(con.getAllCustomers()).build();
+    }
+
+    
 }
