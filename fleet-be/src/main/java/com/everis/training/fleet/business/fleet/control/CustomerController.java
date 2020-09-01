@@ -41,4 +41,7 @@ public class CustomerController {
     }
 
 
+    public void finalizeReserveCar(Integer idcustomer) {
+        repo.finalizeReserveCar(idcustomer);
+    }
 }

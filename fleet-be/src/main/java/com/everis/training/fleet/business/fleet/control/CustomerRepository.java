@@ -47,4 +47,12 @@ public class CustomerRepository {
         c.setVehicle(reserve.getVin());
         em.merge(c);
     }
+
+    public void finalizeReserveCar(Integer idcustomer) {
+        Customer c;
+        c=em.find(Customer.class, idcustomer);
+        c.setVehicle(null);
+        em.merge(c);
+
+    }
 }

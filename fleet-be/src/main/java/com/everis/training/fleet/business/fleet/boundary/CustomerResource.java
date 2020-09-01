@@ -43,6 +43,13 @@ public class CustomerResource {
         return Response.ok().entity(String.format("The reserve has been done successfully!")).build();
     }
 
+    @Path("reserve/{customerId}")
+    @PUT
+    public Response finalizeReserveCar(@PathParam("customerId") final Integer id){
+        con.finalizeReserveCar(id);
+        return Response.ok().entity(String.format("The reserve has been done successfully!")).build();
+    }
+
     @PUT
     public Response updateCustomer(Customer customer){
         con.update(customer);
