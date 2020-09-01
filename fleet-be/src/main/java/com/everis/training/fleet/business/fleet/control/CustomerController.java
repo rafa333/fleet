@@ -9,16 +9,17 @@ import net.minidev.json.JSONObject;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
+import java.util.List;
 
 @ApplicationScoped
 public class CustomerController {
     @Inject
     CustomerRepository repo;
-    public String findCustomer(Integer id) {
+    public Customer findCustomer(Integer id) {
         return repo.findCustomer(id);
     }
 
-    public String getAllCustomers() {
+    public List<Customer> getAllCustomers() {
         return repo.getAll();
     }
 

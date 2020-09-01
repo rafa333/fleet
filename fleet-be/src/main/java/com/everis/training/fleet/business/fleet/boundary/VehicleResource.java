@@ -38,18 +38,14 @@ public class VehicleResource {
   }
 
   @POST
-  public Response addVehicle(String json) {
-    Gson gson = new Gson();
-    Vehicle v = gson.fromJson(json, Vehicle.class);
-    con.add(v);
+  public Response addVehicle(Vehicle vehicle) {
+    con.add(vehicle);
     return Response.ok().entity(String.format("The vehicle has been added successfully!")).build();
   }
 
   @PUT
-  public Response updateVehicle(String json) {
-    Gson gson = new Gson();
-    Vehicle v = gson.fromJson(json, Vehicle.class);
-    con.update(v);
+  public Response updateVehicle(Vehicle vehicle) {
+    con.update(vehicle);
     return Response.ok().entity(String.format("The vehicle has been updated successfully!")).build();
   }
 

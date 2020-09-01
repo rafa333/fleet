@@ -16,17 +16,13 @@ public class CustomerRepository {
     @PersistenceContext(unitName = "fleet")
     EntityManager em;
 
-    public String findCustomer(Integer id) {
-        Gson gson = new Gson();
-        String jsonCustomer = gson.toJson(em.find(Customer.class, id));
-        return jsonCustomer;
+    public Customer findCustomer(Integer id) {
+        return em.find(Customer.class, id);
     }
 
-    public String getAll() {
+    public List<Customer> getAll() {
         Query q = em.createQuery("SELECT customer FROM Customer customer", Customer.class);
-        Gson gson = new Gson();
-        String jsonCustomerList = gson.toJson((List<Fleet>) q.getResultList());
-        return jsonCustomerList;
+        return (List<Customer>) q.getResultList();
     }
 
     public void saveCustomer(Customer customer) {

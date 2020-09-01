@@ -2,6 +2,7 @@ package com.everis.training.fleet.business.fleet.boundary;
 
 import com.everis.training.fleet.business.fleet.control.FleetController;
 import com.everis.training.fleet.business.fleet.entity.Fleet;
+import com.everis.training.fleet.business.fleet.entity.Vehicle;
 import com.google.gson.Gson;
 
 import javax.ejb.Stateless;
@@ -30,18 +31,14 @@ public class FleetResource {
     }
 
     @POST
-    public Response addFleet(String json){
-        Gson gson = new Gson();
-        Fleet f = gson.fromJson(json, Fleet.class);
-        con.add(f);
+    public Response addFleet(Fleet fleet){
+        con.add(fleet);
         return Response.ok().entity(String.format("The fleet has been added successfully!")).build();
     }
 
     @PUT
-    public Response updateFleet(String json){
-        Gson gson = new Gson();
-        Fleet f = gson.fromJson(json, Fleet.class);
-        con.update(f);
+    public Response updateFleet(Fleet fleet){
+        con.update(fleet);
         return Response.ok().entity(String.format("The fleet has been updated successfully!")).build();
     }
 

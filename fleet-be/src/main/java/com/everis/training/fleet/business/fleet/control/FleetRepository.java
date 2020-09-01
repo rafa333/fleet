@@ -13,17 +13,13 @@ import java.util.List;
 public class FleetRepository {
     @PersistenceContext(unitName = "fleet")
     EntityManager em;
-    public String getAll(){
+    public List<Fleet> getAll(){
         Query q = em.createQuery("SELECT fleet FROM Fleet fleet", Fleet.class);
-        Gson gson = new Gson();
-        String jsonFleetList = gson.toJson((List <Fleet>) q.getResultList());
-        return jsonFleetList;
+        return (List <Fleet>) q.getResultList();
     }
 
-    public String findFleet(Integer id) {
-        Gson gson = new Gson();
-        String jsonFleet = gson.toJson(em.find(Fleet.class, id));
-        return jsonFleet;
+    public Fleet findFleet(Integer id) {
+        return em.find(Fleet.class, id);
     }
 
     public void saveFleet(Fleet fleet) {

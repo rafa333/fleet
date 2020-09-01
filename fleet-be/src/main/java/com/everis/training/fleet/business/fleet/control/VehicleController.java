@@ -7,6 +7,7 @@ import com.everis.training.fleet.business.fleet.entity.Vehicle;
 
 import javax.faces.bean.*;
 import javax.inject.Inject;
+import java.util.List;
 
 @ApplicationScoped
 public class VehicleController {
@@ -14,10 +15,10 @@ public class VehicleController {
     @Inject
     VehicleRepository repo;
 
-    public String getAllVehicles() {
+    public List<Vehicle> getAllVehicles() {
         return repo.getAll();
     }
-    public String getAllFreeVehicles() {
+    public List<Vehicle> getAllFreeVehicles() {
         return repo.getAllFreeVehicles();
     }
 
@@ -40,7 +41,7 @@ public class VehicleController {
         }
     }
 
-    public String findVehicle(String vin){
+    public Vehicle findVehicle(String vin){
         return repo.findVehicle(vin);
     }
 

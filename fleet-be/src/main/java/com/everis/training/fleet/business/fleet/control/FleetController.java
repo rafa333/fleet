@@ -4,17 +4,18 @@ import com.everis.training.fleet.business.fleet.entity.Fleet;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
+import java.util.List;
 
 @ApplicationScoped
 public class FleetController {
     @Inject
     FleetRepository repo;
 
-    public String getAllFleets(){
+    public List<Fleet> getAllFleets(){
         return repo.getAll();
     }
 
-    public String findFleet(Integer id) {
+    public Fleet findFleet(Integer id) {
         return repo.findFleet(id);
     }
 

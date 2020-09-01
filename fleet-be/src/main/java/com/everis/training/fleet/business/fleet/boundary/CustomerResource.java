@@ -31,10 +31,8 @@ public class CustomerResource {
     }
 
     @POST
-    public Response addCustomer(String json){
-        Gson gson = new Gson();
-        Customer c = gson.fromJson(json, Customer.class);
-        con.add(c);
+    public Response addCustomer(Customer customer){
+        con.add(customer);
         return Response.ok().entity(String.format("The customer has been added successfully!")).build();
     }
 
@@ -46,10 +44,8 @@ public class CustomerResource {
     }
 
     @PUT
-    public Response updateCustomer(String json){
-        Gson gson = new Gson();
-        Customer c = gson.fromJson(json, Customer.class);
-        con.update(c);
+    public Response updateCustomer(Customer customer){
+        con.update(customer);
         return Response.ok().entity(String.format("The customer has been updated successfully!")).build();
     }
 
