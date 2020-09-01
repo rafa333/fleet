@@ -23,7 +23,6 @@ public class VehicleResource {
   @Path("{vehicleId}")
   @GET
   public Response retrieveVehicle(@PathParam("vehicleId") final String vin) {
-
     return Response.ok().entity(con.findVehicle(vin)).build();
   }
 
@@ -33,7 +32,7 @@ public class VehicleResource {
   }
 
   @POST
-  public Response addVehicle( String json) {
+  public Response addVehicle(String json) {
     Gson gson = new Gson();
     Vehicle v = gson.fromJson(json, Vehicle.class);
     con.add(v);
