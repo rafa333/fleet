@@ -34,4 +34,10 @@ public class FleetRepository {
     public void updateFleet(Fleet fleet) {
         em.merge(fleet);
     }
+
+    public void deleteVehicle(Integer id) {
+        Fleet fleet;
+        fleet = em.find(Fleet.class, id);
+        em.remove(fleet);
+    }
 }

@@ -42,5 +42,13 @@ public class FleetResource {
         Gson gson = new Gson();
         Fleet f = gson.fromJson(json, Fleet.class);
         con.update(f);
-        return Response.ok().entity(String.format("The fleet has been updated successfully!")).build();    }
+        return Response.ok().entity(String.format("The fleet has been updated successfully!")).build();
+    }
+
+    @Path("{fleetId}")
+    @DELETE
+    public Response deleteVehicle(@PathParam("fleetId") final Integer id) {
+        con.delete(id);
+        return Response.ok().entity(String.format("The fleet with id: %s has been deleted successfully!", id)).build();
+    }
 }

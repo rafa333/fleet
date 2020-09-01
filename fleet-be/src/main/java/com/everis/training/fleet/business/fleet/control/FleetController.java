@@ -25,4 +25,8 @@ public class FleetController {
     public void update(Fleet fleet) {
         repo.updateFleet(fleet);
     }
+
+    public void delete(Integer id) {
+        repo.deleteVehicle(id);
+    }
 }
