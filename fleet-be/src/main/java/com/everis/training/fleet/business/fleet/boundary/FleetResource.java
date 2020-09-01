@@ -1,6 +1,8 @@
 package com.everis.training.fleet.business.fleet.boundary;
 
 import com.everis.training.fleet.business.fleet.control.FleetController;
+import com.everis.training.fleet.business.fleet.entity.Fleet;
+import com.google.gson.Gson;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -25,5 +27,13 @@ public class FleetResource {
     @GET
     public Response listFleets() {
         return Response.ok().entity(con.getAllFleets()).build();
+    }
+
+    @POST
+    public Response addFleet(String json){
+        Gson gson = new Gson();
+        Fleet f = gson.fromJson(json, Fleet.class);
+        con.add(f);
+        return Response.ok().entity(String.format("The fleet has been added successfully!")).build();
     }
 }

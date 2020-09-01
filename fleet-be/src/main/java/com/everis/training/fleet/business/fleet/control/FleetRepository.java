@@ -25,4 +25,9 @@ public class FleetRepository {
         String jsonFleet = gson.toJson(em.find(Fleet.class, id));
         return jsonFleet;
     }
+
+    public void saveFleet(Fleet fleet) {
+        em.persist(fleet);
+        em.flush();
+    }
 }
