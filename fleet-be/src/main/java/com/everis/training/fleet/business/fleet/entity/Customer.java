@@ -7,8 +7,7 @@ import java.io.Serializable;
 @Table(name = "customer")
 @NamedQuery(name = "getAllCustomers", query = "SELECT customer FROM Customer customer")
 public class Customer implements Serializable {
-    private static final long serialVersionUId = 1L;
-
+    private static final long serialVersionUID = 1L;
     @Id
     private int idcustomer;
     @Column

@@ -1,6 +1,5 @@
 package com.everis.training.fleet.business.fleet.entity;
 
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -33,27 +33,27 @@ public class CustomerResource {
     @POST
     public Response addCustomer(Customer customer){
         con.add(customer);
-        return Response.ok().entity(String.format("The customer has been added successfully!")).build();
+        return Response.ok().entity("The customer has been added successfully!").build();
     }
 
     @Path("reserve")
     @PUT
     public Response reserveCar(Reserve reserve){
         con.reserveCar(reserve);
-        return Response.ok().entity(String.format("The reserve has been done successfully!")).build();
+        return Response.ok().entity("The reserve has been done successfully!").build();
     }
 
     @Path("reserve/{customerId}")
     @PUT
     public Response finalizeReserveCar(@PathParam("customerId") final Integer id){
         con.finalizeReserveCar(id);
-        return Response.ok().entity(String.format("The reserve has been done successfully!")).build();
+        return Response.ok().entity("The reserve has been done successfully!").build();
     }
 
     @PUT
     public Response updateCustomer(Customer customer){
         con.update(customer);
-        return Response.ok().entity(String.format("The customer has been updated successfully!")).build();
+        return Response.ok().entity("The customer has been updated successfully!").build();
     }
 
     @Path("{customerId}")

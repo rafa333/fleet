@@ -33,12 +33,12 @@ public class VehicleRepository {
 
     public List<Vehicle> getAll(){
         Query q = em.createNamedQuery("getAllVehicles", Vehicle.class);
-        return (List<Vehicle>) q.getResultList();
+        return q.getResultList();
     }
 
     public List<Vehicle> getAllFreeVehicles(){
         Query q = em.createNamedQuery("getAllFreeVehicles");
-        return (List<Vehicle>) q.getResultList();
+        return q.getResultList();
     }
 
     public Vehicle findVehicle(String vin){

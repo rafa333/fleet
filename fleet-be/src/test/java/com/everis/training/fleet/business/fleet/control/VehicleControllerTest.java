@@ -17,12 +17,6 @@ class VehicleControllerTest {
     @Mock
     VehicleRepository repo;
 
-    @Before
-    public void setUp(){
-        //MockitoAnnotations.initMocks(this);
-        //repo = mock(repo.getClass());
-    }
-
     @Test
     void addVehicle_validParameters_success() {
         //given

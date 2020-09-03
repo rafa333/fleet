@@ -32,13 +32,13 @@ public class FleetResource {
     @POST
     public Response addFleet(Fleet fleet){
         con.add(fleet);
-        return Response.ok().entity(String.format("The fleet has been added successfully!")).build();
+        return Response.ok().entity("The fleet has been added successfully!").build();
     }
 
     @PUT
     public Response updateFleet(Fleet fleet){
         con.update(fleet);
-        return Response.ok().entity(String.format("The fleet has been updated successfully!")).build();
+        return Response.ok().entity("The fleet has been updated successfully!").build();
     }
 
     @Path("{fleetId}")
