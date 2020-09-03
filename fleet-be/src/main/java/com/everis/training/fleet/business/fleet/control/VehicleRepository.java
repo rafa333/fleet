@@ -11,6 +11,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @ApplicationScoped
+
+
 public class VehicleRepository {
     @PersistenceContext(unitName = "fleet")
     EntityManager em;
@@ -30,12 +32,12 @@ public class VehicleRepository {
     }
 
     public List<Vehicle> getAll(){
-        Query q = em.createQuery("SELECT vehicle FROM Vehicle vehicle", Vehicle.class);
+        Query q = em.createNamedQuery("getAllVehicles", Vehicle.class);
         return (List<Vehicle>) q.getResultList();
     }
 
     public List<Vehicle> getAllFreeVehicles(){
-        Query q = em.createQuery("SELECT vehicle FROM Vehicle vehicle WHERE vehicle.vin NOT IN (SELECT customer.vehicle FROM Customer customer WHERE customer.vehicle NOT IN ('null'))");
+        Query q = em.createNamedQuery("getAllFreeVehicles");
         return (List<Vehicle>) q.getResultList();
     }
 

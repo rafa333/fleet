@@ -4,6 +4,7 @@ import com.everis.training.fleet.business.fleet.entity.Fleet;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.persistence.EntityManager;
+import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
@@ -13,7 +14,7 @@ public class FleetRepository {
     @PersistenceContext(unitName = "fleet")
     EntityManager em;
     public List<Fleet> getAll(){
-        Query q = em.createQuery("SELECT fleet FROM Fleet fleet", Fleet.class);
+        Query q = em.createNamedQuery("getAllFleets", Fleet.class);
         return (List <Fleet>) q.getResultList();
     }
 

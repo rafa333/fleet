@@ -5,10 +5,10 @@ import com.everis.training.fleet.business.fleet.entity.Customer;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.persistence.EntityManager;
+import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
-
 @ApplicationScoped
 public class CustomerRepository {
     @PersistenceContext(unitName = "fleet")
@@ -19,7 +19,7 @@ public class CustomerRepository {
     }
 
     public List<Customer> getAll() {
-        Query q = em.createQuery("SELECT customer FROM Customer customer", Customer.class);
+        Query q = em.createNamedQuery("getAllCustomers", Customer.class);
         return (List<Customer>) q.getResultList();
     }
 

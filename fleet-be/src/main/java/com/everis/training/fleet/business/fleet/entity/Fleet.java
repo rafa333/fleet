@@ -1,13 +1,11 @@
 package com.everis.training.fleet.business.fleet.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table (name = "fleet")
+@NamedQuery(name = "getAllFleets", query = "SELECT fleet FROM Fleet fleet")
 public class Fleet implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
