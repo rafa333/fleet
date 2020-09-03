@@ -5,7 +5,6 @@ package com.everis.training.fleet.business.fleet.control;
 
 
 import com.everis.training.fleet.business.fleet.entity.Vehicle;
-import com.google.gson.Gson;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.persistence.*;
@@ -30,16 +29,17 @@ public class VehicleRepository {
         em.merge(vehicle);
     }
 
-    public String getAll(){
+    public List<Vehicle> getAll(){
         Query q = em.createQuery("SELECT vehicle FROM Vehicle vehicle", Vehicle.class);
-        Gson gson = new Gson();
-        String jsonVehicleList = gson.toJson((List<Vehicle>) q.getResultList());
-        return jsonVehicleList;
+        return (List<Vehicle>) q.getResultList();
     }
 
-    public String findVehicle(String vin){
-        Gson gson = new Gson();
-        String jsonVehicle = gson.toJson(em.find(Vehicle.class, vin));
-        return jsonVehicle;
+    public List<Vehicle> getAllFreeVehicles(){
+        Query q = em.createQuery("SELECT vehicle FROM Vehicle vehicle WHERE vehicle.vin NOT IN (SELECT customer.vehicle FROM Customer customer WHERE customer.vehicle NOT IN ('null'))");
+        return (List<Vehicle>) q.getResultList();
+    }
+
+    public Vehicle findVehicle(String vin){
+        return em.find(Vehicle.class, vin);
     }
 }

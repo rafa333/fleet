@@ -1,5 +1,7 @@
 package com.everis.training.fleet.business.common;
 
+import com.everis.training.fleet.business.fleet.boundary.CustomerResource;
+import com.everis.training.fleet.business.fleet.boundary.FleetResource;
 import com.everis.training.fleet.business.fleet.boundary.VehicleResource;
 import org.glassfish.jersey.server.ResourceConfig;
 
@@ -11,5 +13,8 @@ public class FleetApplication extends ResourceConfig {
 
   public FleetApplication() {
     packages(VehicleResource.class.getPackage().getName());
+    packages(FleetResource.class.getPackage().getName());
+    packages(CustomerResource.class.getPackage().getName());
+
   }
 }
