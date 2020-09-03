@@ -1,12 +1,8 @@
 package com.everis.training.fleet.business.fleet.control;
 
-import com.everis.training.fleet.business.fleet.boundary.Reserve;
+import com.everis.training.fleet.business.fleet.entity.Reserve;
 import com.everis.training.fleet.business.fleet.entity.Customer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import jdk.nashorn.internal.parser.JSONParser;
-import net.minidev.json.JSONObject;
+
 
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;

@@ -2,8 +2,7 @@ package com.everis.training.fleet.business.fleet.boundary;
 
 import com.everis.training.fleet.business.fleet.control.FleetController;
 import com.everis.training.fleet.business.fleet.entity.Fleet;
-import com.everis.training.fleet.business.fleet.entity.Vehicle;
-import com.google.gson.Gson;
+
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

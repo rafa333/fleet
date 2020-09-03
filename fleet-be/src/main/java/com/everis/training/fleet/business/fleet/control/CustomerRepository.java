@@ -1,13 +1,10 @@
 package com.everis.training.fleet.business.fleet.control;
 
-import com.everis.training.fleet.business.fleet.boundary.Reserve;
+import com.everis.training.fleet.business.fleet.entity.Reserve;
 import com.everis.training.fleet.business.fleet.entity.Customer;
-import com.everis.training.fleet.business.fleet.entity.Fleet;
-import com.google.gson.Gson;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;

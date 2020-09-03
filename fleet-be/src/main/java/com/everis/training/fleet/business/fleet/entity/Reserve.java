@@ -1,4 +1,4 @@
-package com.everis.training.fleet.business.fleet.boundary;
+package com.everis.training.fleet.business.fleet.entity;
 
 public class Reserve {
     private int idcustomer;
