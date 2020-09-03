@@ -1,15 +1,15 @@
 package com.everis.training.fleet.business.fleet.entity;
 
 public class Reserve {
-    private int idcustomer;
+    private int idCustomer;
     private String vin;
 
-    public int getIdcustomer() {
-        return idcustomer;
+    public int getIdCustomer() {
+        return idCustomer;
     }
 
-    public void setIdcustomer(int idcustomer) {
-        this.idcustomer = idcustomer;
+    public void setIdCustomer(int idCustomer) {
+        this.idCustomer = idCustomer;
     }
 
     public String getVin() {

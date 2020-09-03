@@ -40,7 +40,7 @@ class CustomerControllerTest {
     void addCustomer_validParameters_success() {
         //given
         Customer customer = new Customer();
-        customer.setIdcustomer(1);
+        customer.setIdCustomer(1);
         customer.setName("Benito Guerra");
         customer.setVehicle("123456789qwertyu1");
         //when
@@ -54,7 +54,7 @@ class CustomerControllerTest {
     void updateCustomer_validParameters_success() {
         //given
         Customer customer = new Customer();
-        customer.setIdcustomer(1);
+        customer.setIdCustomer(1);
         customer.setName("Benito Guerra");
         customer.setVehicle("123456789qwertyu1");
         //when
@@ -77,7 +77,7 @@ class CustomerControllerTest {
     void reserveCar_validParameters_success() {
         //given
         Reserve reserve = new Reserve();
-        reserve.setIdcustomer(1);
+        reserve.setIdCustomer(1);
         reserve.setVin("123456789qwertyu1");
         //when
         underTest.reserveCar(reserve);

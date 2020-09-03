@@ -39,14 +39,14 @@ public class CustomerRepository {
 
     public void reserveCar(Reserve reserve) {
         Customer c;
-        c=em.find(Customer.class, reserve.getIdcustomer());
+        c=em.find(Customer.class, reserve.getIdCustomer());
         c.setVehicle(reserve.getVin());
         em.merge(c);
     }
 
-    public void finalizeReserveCar(Integer idcustomer) {
+    public void finalizeReserveCar(Integer idCustomer) {
         Customer c;
-        c=em.find(Customer.class, idcustomer);
+        c=em.find(Customer.class, idCustomer);
         c.setVehicle(null);
         em.merge(c);
 

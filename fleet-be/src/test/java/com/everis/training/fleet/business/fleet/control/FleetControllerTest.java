@@ -39,7 +39,7 @@ class FleetControllerTest {
     void addFleet_validParameters_sucess() {
         //given
         Fleet fleet = new Fleet();
-        fleet.setIdfleet(1);
+        fleet.setIdFleet(1);
         fleet.setName("BMW-US");
         //when
         underTest.add(fleet);
@@ -51,7 +51,7 @@ class FleetControllerTest {
     void updateFleet_validParameters_sucess() {
         //given
         Fleet fleet = new Fleet();
-        fleet.setIdfleet(1);
+        fleet.setIdFleet(1);
         fleet.setName("BMW-US");
         //when
         underTest.update(fleet);

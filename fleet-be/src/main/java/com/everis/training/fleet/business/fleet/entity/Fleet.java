@@ -9,16 +9,16 @@ import java.io.Serializable;
 public class Fleet implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    private int idfleet;
+    private int idFleet;
     @Column
     private String name;
 
-    public int getIdfleet() {
-        return idfleet;
+    public int getIdFleet() {
+        return idFleet;
     }
 
-    public void setIdfleet(int idfleet) {
-        this.idfleet = idfleet;
+    public void setIdFleet(int idFleet) {
+        this.idFleet = idFleet;
     }
 
     public String getName() {

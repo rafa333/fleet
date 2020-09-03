@@ -9,18 +9,18 @@ import java.io.Serializable;
 public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    private int idcustomer;
+    private int idCustomer;
     @Column
     private String name;
     @Column
     private String vehicle;
 
-    public int getIdcustomer() {
-        return idcustomer;
+    public int getIdCustomer() {
+        return idCustomer;
     }
 
-    public void setIdcustomer(int idcustomer) {
-        this.idcustomer = idcustomer;
+    public void setIdCustomer(int idCustomer) {
+        this.idCustomer = idCustomer;
     }
 
     public String getName() {

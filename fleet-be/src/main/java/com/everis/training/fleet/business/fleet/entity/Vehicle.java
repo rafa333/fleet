@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Table (name="vehicles")
 @NamedQueries({
         @NamedQuery(name = "getAllVehicles", query = "SELECT Vehicle FROM Vehicle vehicle"),
-        @NamedQuery(name = "getAllFreeVehicles", query = "SELECT vehicle FROM Vehicle vehicle WHERE vehicle.vin NOT IN (SELECT customer.vehicle FROM Customer customer WHERE customer.vehicle NOT IN ('null'))")
+        @NamedQuery(name = "getAllFreeVehicles", query = "SELECT vehicle FROM Vehicle vehicle WHERE NOT EXISTS (SELECT vehicle FROM Customer customer WHERE customer.vehicle = vehicle.vin)")
 })
 public class Vehicle implements Serializable {
     private static final long serialVersionUID = 1L;
