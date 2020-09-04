@@ -11,6 +11,8 @@ import java.util.List;
 public class CustomerController {
     @Inject
     CustomerRepository repo;
+    @Inject
+    VehicleController con;
     public Customer findCustomer(Integer id) {
         return repo.findCustomer(id);
     }
@@ -28,11 +30,13 @@ public class CustomerController {
     }
 
     public void reserveCar(Integer id, String vin) {
-        repo.reserveCar(id, vin);
+        if (con.vinCheck(vin)){
+            repo.reserveCar(id, vin);
+        }
     }
 
 
-    public void finalizeReserveCar(Integer idcustomer) {
-        repo.finalizeReserveCar(idcustomer);
+    public void finalizeReserveCar(Integer idCustomer) {
+        repo.finalizeReserveCar(idCustomer);
     }
 }

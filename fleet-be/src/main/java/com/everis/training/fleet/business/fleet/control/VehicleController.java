@@ -3,11 +3,11 @@ package com.everis.training.fleet.business.fleet.control;
 
 //Check data -> Send to repository
 
+import com.everis.training.fleet.business.exception.VinLengthException;
 import com.everis.training.fleet.business.fleet.entity.Vehicle;
 
 import javax.faces.bean.*;
 import javax.inject.Inject;
-import java.io.FileNotFoundException;
 import java.util.List;
 
 @ApplicationScoped
@@ -47,8 +47,7 @@ public class VehicleController {
             if (vin.length()==vinLength){
                 return true;
             }else {
-                //Custom exception vinLongitude
-                return false;
+                throw new VinLengthException("The VIN must have 17 characters");
             }
         }
     }
