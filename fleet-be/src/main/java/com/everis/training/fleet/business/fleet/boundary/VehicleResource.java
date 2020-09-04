@@ -36,16 +36,38 @@ public class VehicleResource {
     return Response.ok().entity(con.getAllFreeVehicles()).build();
   }
 
+  @Path("{customerId}/reserve-vehicle/{vin}")
+  @POST
+  public Response reserveCar(@PathParam("customerId") final Integer id, @PathParam("vin") String vin){
+    String response = "The reserve has been done successfully!";
+    try {
+      con.reserveCar(id, vin);
+    } catch (Exception e) {
+      response=e.getMessage();
+    }
+    return Response.ok().entity(response).build();
+  }
+
   @POST
   public Response addVehicle(Vehicle vehicle) {
-    con.add(vehicle);
-    return Response.ok().entity("The vehicle has been added successfully!").build();
+    String response = "The vehicle has been added successfully!";
+    try {
+      con.add(vehicle);
+    } catch (Exception e) {
+      response=e.getMessage();
+    }
+    return Response.ok().entity(response).build();
   }
 
   @Path("{vehicleId}")
   @DELETE
   public Response deleteVehicle(@PathParam("vehicleId") final String vin) {
-    con.delete(vin);
-    return Response.ok().entity(String.format("The vehicle with vin: %s has been deleted successfully!", vin)).build();
+    String response = "The vehicle has been deleted successfully!";
+    try {
+      con.delete(vin);
+    } catch (Exception e) {
+      response=e.getMessage();
+    }
+    return Response.ok().entity(response).build();
   }
 }

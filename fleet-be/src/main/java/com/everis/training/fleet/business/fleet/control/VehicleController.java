@@ -23,15 +23,30 @@ public class VehicleController {
         return repo.getAllFreeVehicles();
     }
 
-    public void delete(String vin) {
-        if (vinCheck(vin)){
+    public void delete(String vin) throws Exception{
+        try {
+            vinCheck(vin);
             repo.deleteVehicle(vin);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public void add(Vehicle vehicle){
-        if (vinCheck(vehicle.getVin())){
+    public void reserveCar(Integer id, String vin) throws Exception{
+        try {
+            vinCheck(vin);
+            repo.reserveCar(id, vin);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void add(Vehicle vehicle) throws Exception {
+        try {
+            vinCheck(vehicle.getVin());
             repo.addVehicle(vehicle);
+        } catch (Exception e) {
+            throw e;
         }
     }
 
@@ -39,14 +54,12 @@ public class VehicleController {
         return repo.findVehicle(vin);
     }
 
-    public Boolean vinCheck (String vin){
+    public void vinCheck (String vin) throws Exception{
         int vinLength = 17;
         if (vin==null){
             throw new NullPointerException("The vin can not be null");
         }else{
-            if (vin.length()==vinLength){
-                return true;
-            }else {
+            if (vin.length()!=vinLength){
                 throw new VinLengthException("The VIN must have 17 characters");
             }
         }

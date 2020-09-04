@@ -60,17 +60,6 @@ class CustomerControllerTest {
     }
 
     @Test
-    void reserveCar_validParameters_success() {
-        //given
-        int id = 1;
-        String vin = "123456789qwertyu1";
-        //when
-        underTest.reserveCar(id, vin);
-        //then
-        verify(repo).reserveCar(id, vin);
-    }
-
-    @Test
     void finalizeReserveCar_validParameters_success() {
         //given
         int idCustomer = 1;

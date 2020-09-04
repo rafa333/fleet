@@ -17,7 +17,7 @@ class VehicleControllerTest {
     VehicleRepository repo;
 
     @Test
-    void addVehicle_validParameters_success() {
+    void addVehicle_validParameters_success() throws Exception {
         //given
         Vehicle vehicle = new Vehicle();
         vehicle.setFleet(1);
@@ -30,8 +30,20 @@ class VehicleControllerTest {
         //then
         verify(repo).addVehicle(vehicle);
     }
+
     @Test
-    void deleteVehicle_validParameters_success() {
+    void reserveCar_validParameters_success() throws Exception {
+        //given
+        int id = 1;
+        String vin = "123456789qwertyu1";
+        //when
+        underTest.reserveCar(id, vin);
+        //then
+        verify(repo).reserveCar(id, vin);
+    }
+
+    @Test
+    void deleteVehicle_validParameters_success() throws Exception {
         //given
         String vin = "123456789qwertyu1";
         //when

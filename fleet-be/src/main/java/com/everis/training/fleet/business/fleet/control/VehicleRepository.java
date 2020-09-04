@@ -4,6 +4,7 @@ package com.everis.training.fleet.business.fleet.control;
 //Database connection and take the data
 
 
+import com.everis.training.fleet.business.fleet.entity.Customer;
 import com.everis.training.fleet.business.fleet.entity.Vehicle;
 
 import javax.faces.bean.ApplicationScoped;
@@ -25,6 +26,12 @@ public class VehicleRepository {
 
     public void addVehicle(Vehicle vehicle){
         em.merge(vehicle);
+    }
+
+    public void reserveCar(Integer id, String vin) {
+        Customer c;
+        c=em.find(Customer.class, id);
+        c.setVehicle(vin);
     }
 
     public List<Vehicle> getAll(){

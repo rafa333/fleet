@@ -31,12 +31,6 @@ public class CustomerRepository {
         em.remove(customer);
     }
 
-    public void reserveCar(Integer id, String vin) {
-        Customer c;
-        c=em.find(Customer.class, id);
-        c.setVehicle(vin);
-    }
-
     public void finalizeReserveCar(Integer idCustomer) {
         Customer c;
         c=em.find(Customer.class, idCustomer);

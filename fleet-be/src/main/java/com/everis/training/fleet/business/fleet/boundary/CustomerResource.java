@@ -36,13 +36,6 @@ public class CustomerResource {
         return Response.ok().entity("The customer has been added successfully!").build();
     }
 
-    @Path("{customerId}/reserve-vehicle/{vin}")
-    @POST
-    public Response reserveCar(@PathParam("customerId") final Integer id, @PathParam("vin") String vin){
-        con.reserveCar(id, vin);
-        return Response.ok().entity("The reserve has been done successfully!").build();
-    }
-
     @Path("{customerId}/finalize-reservation")
     @POST
     public Response finalizeReserveCar(@PathParam("customerId") final Integer id){
