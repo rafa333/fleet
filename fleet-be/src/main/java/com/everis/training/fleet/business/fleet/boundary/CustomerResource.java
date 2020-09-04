@@ -2,7 +2,6 @@ package com.everis.training.fleet.business.fleet.boundary;
 
 import com.everis.training.fleet.business.fleet.control.CustomerController;
 import com.everis.training.fleet.business.fleet.entity.Customer;
-import com.everis.training.fleet.business.fleet.entity.Reserve;
 
 
 import javax.ejb.Stateless;
@@ -30,30 +29,25 @@ public class CustomerResource {
         return Response.ok().entity(con.getAllCustomers()).build();
     }
 
+
     @POST
     public Response addCustomer(Customer customer){
         con.add(customer);
         return Response.ok().entity("The customer has been added successfully!").build();
     }
 
-    @Path("reserve")
-    @PUT
-    public Response reserveCar(Reserve reserve){
-        con.reserveCar(reserve);
+    @Path("{customerId}/reserve-vehicle/{vin}")
+    @POST
+    public Response reserveCar(@PathParam("customerId") final Integer id, @PathParam("vin") String vin){
+        con.reserveCar(id, vin);
         return Response.ok().entity("The reserve has been done successfully!").build();
     }
 
-    @Path("reserve/{customerId}")
-    @PUT
+    @Path("{customerId}/finalize-reservation")
+    @POST
     public Response finalizeReserveCar(@PathParam("customerId") final Integer id){
         con.finalizeReserveCar(id);
         return Response.ok().entity("The reserve has been done successfully!").build();
-    }
-
-    @PUT
-    public Response updateCustomer(Customer customer){
-        con.update(customer);
-        return Response.ok().entity("The customer has been updated successfully!").build();
     }
 
     @Path("{customerId}")

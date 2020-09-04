@@ -35,12 +35,6 @@ public class FleetResource {
         return Response.ok().entity("The fleet has been added successfully!").build();
     }
 
-    @PUT
-    public Response updateFleet(Fleet fleet){
-        con.update(fleet);
-        return Response.ok().entity("The fleet has been updated successfully!").build();
-    }
-
     @Path("{fleetId}")
     @DELETE
     public Response deleteVehicle(@PathParam("fleetId") final Integer id) {

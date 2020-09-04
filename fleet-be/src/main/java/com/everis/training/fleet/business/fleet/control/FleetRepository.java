@@ -22,11 +22,6 @@ public class FleetRepository {
     }
 
     public void saveFleet(Fleet fleet) {
-        em.persist(fleet);
-        em.flush();
-    }
-
-    public void updateFleet(Fleet fleet) {
         em.merge(fleet);
     }
 

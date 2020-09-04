@@ -48,18 +48,6 @@ class FleetControllerTest {
     }
 
     @Test
-    void updateFleet_validParameters_sucess() {
-        //given
-        Fleet fleet = new Fleet();
-        fleet.setIdFleet(1);
-        fleet.setName("BMW-US");
-        //when
-        underTest.update(fleet);
-        //then
-        verify(repo).updateFleet(fleet);
-    }
-
-    @Test
     void deleteFleet_validParameters_sucess() {
         //given
         int idFleet = 1;

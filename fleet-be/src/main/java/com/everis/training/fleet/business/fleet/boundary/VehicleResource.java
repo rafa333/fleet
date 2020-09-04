@@ -19,7 +19,7 @@ public class VehicleResource {
   @Inject
   VehicleController con;
 
-  @Path("{vehicleId}")
+  @Path("{vehicleId}/search-vehicle")
   @GET
   public Response retrieveVehicle(@PathParam("vehicleId") final String vin) {
     return Response.ok().entity(con.findVehicle(vin)).build();
@@ -30,7 +30,7 @@ public class VehicleResource {
     return Response.ok().entity(con.getAllVehicles()).build();
   }
 
-  @Path("free")
+  @Path("free-vehicles")
   @GET
   public Response listFreeVehicles() {
     return Response.ok().entity(con.getAllFreeVehicles()).build();
@@ -40,12 +40,6 @@ public class VehicleResource {
   public Response addVehicle(Vehicle vehicle) {
     con.add(vehicle);
     return Response.ok().entity("The vehicle has been added successfully!").build();
-  }
-
-  @PUT
-  public Response updateVehicle(Vehicle vehicle) {
-    con.update(vehicle);
-    return Response.ok().entity("The vehicle has been updated successfully!").build();
   }
 
   @Path("{vehicleId}")

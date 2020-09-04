@@ -1,6 +1,5 @@
 package com.everis.training.fleet.business.fleet.control;
 
-import com.everis.training.fleet.business.fleet.entity.Reserve;
 import com.everis.training.fleet.business.fleet.entity.Customer;
 
 
@@ -24,16 +23,12 @@ public class CustomerController {
         repo.saveCustomer(customer);
     }
 
-    public void update(Customer customer) {
-        repo.updateCustomer(customer);
-    }
-
     public void delete(Integer id) {
         repo.deleteVehicle(id);
     }
 
-    public void reserveCar(Reserve reserve) {
-        repo.reserveCar(reserve);
+    public void reserveCar(Integer id, String vin) {
+        repo.reserveCar(id, vin);
     }
 
 

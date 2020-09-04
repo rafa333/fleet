@@ -23,10 +23,6 @@ public class FleetController {
         repo.saveFleet(fleet);
     }
 
-    public void update(Fleet fleet) {
-        repo.updateFleet(fleet);
-    }
-
     public void delete(Integer id) {
         repo.deleteVehicle(id);
     }

@@ -1,7 +1,6 @@
 package com.everis.training.fleet.business.fleet.control;
 
 import com.everis.training.fleet.business.fleet.entity.Customer;
-import com.everis.training.fleet.business.fleet.entity.Reserve;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -51,19 +50,6 @@ class CustomerControllerTest {
     }
 
     @Test
-    void updateCustomer_validParameters_success() {
-        //given
-        Customer customer = new Customer();
-        customer.setIdCustomer(1);
-        customer.setName("Benito Guerra");
-        customer.setVehicle("123456789qwertyu1");
-        //when
-        underTest.update(customer);
-        //then
-        verify(repo).updateCustomer(customer);
-    }
-
-    @Test
     void deleteCustomer_validParameters_success() {
         //given
         int idCustomer = 1;
@@ -76,13 +62,12 @@ class CustomerControllerTest {
     @Test
     void reserveCar_validParameters_success() {
         //given
-        Reserve reserve = new Reserve();
-        reserve.setIdCustomer(1);
-        reserve.setVin("123456789qwertyu1");
+        int id = 1;
+        String vin = "123456789qwertyu1";
         //when
-        underTest.reserveCar(reserve);
+        underTest.reserveCar(id, vin);
         //then
-        verify(repo).reserveCar(reserve);
+        verify(repo).reserveCar(id, vin);
     }
 
     @Test

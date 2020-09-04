@@ -16,10 +16,6 @@ import java.util.List;
 public class VehicleRepository {
     @PersistenceContext(unitName = "fleet")
     EntityManager em;
-    public void saveVehicle(Vehicle vehicle){
-        em.persist(vehicle);
-        em.flush();
-    }
 
     public void deleteVehicle(String vin){
         Vehicle vehicle;
@@ -27,7 +23,7 @@ public class VehicleRepository {
         em.remove(vehicle);
     }
 
-    public void updateVehicle(Vehicle vehicle){
+    public void addVehicle(Vehicle vehicle){
         em.merge(vehicle);
     }
 

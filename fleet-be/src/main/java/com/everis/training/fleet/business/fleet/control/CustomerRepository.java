@@ -1,6 +1,5 @@
 package com.everis.training.fleet.business.fleet.control;
 
-import com.everis.training.fleet.business.fleet.entity.Reserve;
 import com.everis.training.fleet.business.fleet.entity.Customer;
 
 import javax.faces.bean.ApplicationScoped;
@@ -23,11 +22,6 @@ public class CustomerRepository {
     }
 
     public void saveCustomer(Customer customer) {
-        em.persist(customer);
-        em.flush();
-    }
-
-    public void updateCustomer(Customer customer) {
         em.merge(customer);
     }
 
@@ -37,18 +31,15 @@ public class CustomerRepository {
         em.remove(customer);
     }
 
-    public void reserveCar(Reserve reserve) {
+    public void reserveCar(Integer id, String vin) {
         Customer c;
-        c=em.find(Customer.class, reserve.getIdCustomer());
-        c.setVehicle(reserve.getVin());
-        em.merge(c);
+        c=em.find(Customer.class, id);
+        c.setVehicle(vin);
     }
 
     public void finalizeReserveCar(Integer idCustomer) {
         Customer c;
         c=em.find(Customer.class, idCustomer);
         c.setVehicle(null);
-        em.merge(c);
-
     }
 }
