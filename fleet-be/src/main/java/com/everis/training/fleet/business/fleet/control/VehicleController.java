@@ -1,8 +1,5 @@
 package com.everis.training.fleet.business.fleet.control;
 
-
-//Check data -> Send to repository
-
 import com.everis.training.fleet.business.exception.VinLengthException;
 import com.everis.training.fleet.business.fleet.entity.Vehicle;
 
