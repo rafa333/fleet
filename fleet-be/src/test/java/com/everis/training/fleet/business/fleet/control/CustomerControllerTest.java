@@ -68,4 +68,15 @@ class CustomerControllerTest {
         //then
         verify(repo).finalizeReserveCar(idCustomer);
     }
+
+    @Test
+    void reserveCar_validParameters_success() throws Exception {
+        //given
+        int id = 1;
+        String vin = "123456789qwertyu1";
+        //when
+        underTest.reserveCar(id, vin);
+        //then
+        verify(repo).reserveCar(id, vin);
+    }
 }

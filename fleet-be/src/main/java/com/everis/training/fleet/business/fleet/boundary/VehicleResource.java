@@ -37,18 +37,6 @@ public class VehicleResource {
     return Response.ok().entity(con.getAllFreeVehicles()).build();
   }
 
-  @Path("{customerId}/reserve-vehicle/{vin}")
-  @POST
-  public Response reserveCar(@PathParam("customerId") final Integer id, @PathParam("vin") final String vin){
-    String response = "The reserve has been done successfully!";
-    try {
-      con.reserveCar(id, vin);
-    } catch (InvalidVinException e) {
-      response=e.getMessage();
-    }
-    return Response.ok().entity(response).build();
-  }
-
   @POST
   public Response addVehicle(final Vehicle vehicle) {
     String response = "The vehicle has been added successfully!";

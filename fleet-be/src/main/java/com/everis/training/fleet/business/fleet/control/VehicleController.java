@@ -29,15 +29,6 @@ public class VehicleController {
         }
     }
 
-    public void reserveCar(final Integer id, final String vin) throws InvalidVinException{
-        try {
-            checkVin(vin);
-            repo.reserveCar(id, vin);
-        } catch (InvalidVinException e) {
-            throw e;
-        }
-    }
-
     public void add(final Vehicle vehicle) throws InvalidVinException {
         try {
             checkVin(vehicle.getVin());
@@ -51,7 +42,7 @@ public class VehicleController {
         return repo.findVehicle(vin);
     }
 
-    public void checkVin(final String vin) throws InvalidVinException{
+    public static void checkVin(final String vin) throws InvalidVinException{
         int vinLength = 17;
         if (vin==null){
             throw new InvalidVinException("The vin can not be null");

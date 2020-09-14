@@ -36,4 +36,10 @@ public class CustomerRepository {
         c=em.find(Customer.class, idCustomer);
         c.setVehicle(null);
     }
+
+    public void reserveCar(Integer id, String vin) {
+        Customer c;
+        c=em.find(Customer.class, id);
+        c.setVehicle(vin);
+    }
 }

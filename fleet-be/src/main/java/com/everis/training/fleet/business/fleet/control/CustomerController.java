@@ -1,5 +1,6 @@
 package com.everis.training.fleet.business.fleet.control;
 
+import com.everis.training.fleet.business.exception.InvalidVinException;
 import com.everis.training.fleet.business.fleet.entity.Customer;
 
 
@@ -30,5 +31,13 @@ public class CustomerController {
 
     public void finalizeReserveCar(Integer idCustomer) {
         repo.finalizeReserveCar(idCustomer);
+    }
+    public void reserveCar(final Integer id, final String vin) throws InvalidVinException {
+        try {
+            VehicleController.checkVin(vin);
+            repo.reserveCar(id, vin);
+        } catch (InvalidVinException e) {
+            throw e;
+        }
     }
 }

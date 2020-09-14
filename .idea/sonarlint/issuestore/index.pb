@@ -23,8 +23,6 @@ Qfleet-be/src/main/java/com/everis/training/fleet/business/fleet/entity/Fleet.ja
 cfleet-be/src/test/java/com/everis/training/fleet/business/fleet/control/CustomerControllerTest.java,7\c\7c35a314dc4880e1cf93bdb6d9fcfa7e21d806df
 ã
 [fleet-be/src/main/java/com/everis/training/fleet/business/fleet/boundary/FleetResource.java,7\d\7dd63601d274f88e55d0067b3abaa056336100d9
-á
-Wfleet-be/src/main/java/com/everis/training/fleet/business/fleet/entity/Reservation.java,7\1\71e74bcab263bb64270bb66038af7bcd9c001040
 è
 _fleet-be/src/main/java/com/everis/training/fleet/business/fleet/control/CustomerController.java,f\c\fcddd45c15b19a87407dcedb048a2a1f1567e4ac
 è

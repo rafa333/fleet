@@ -1,5 +1,6 @@
 package com.everis.training.fleet.business.fleet.boundary;
 
+import com.everis.training.fleet.business.exception.InvalidVinException;
 import com.everis.training.fleet.business.fleet.control.CustomerController;
 import com.everis.training.fleet.business.fleet.entity.Customer;
 
@@ -34,6 +35,18 @@ public class CustomerResource {
     public Response addCustomer(Customer customer){
         con.add(customer);
         return Response.ok().entity("The customer has been added successfully!").build();
+    }
+
+    @Path("{customerId}/reserve-vehicle/{vin}")
+    @POST
+    public Response reserveCar(@PathParam("customerId") final Integer id, @PathParam("vin") final String vin){
+        String response = "The reserve has been done successfully!";
+        try {
+            con.reserveCar(id, vin);
+        } catch (InvalidVinException e) {
+            response=e.getMessage();
+        }
+        return Response.ok().entity(response).build();
     }
 
     @Path("{customerId}/finalize-reservation")
