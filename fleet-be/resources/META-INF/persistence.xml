@@ -6,6 +6,8 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>jdbc/fleet</jta-data-source>
         <class>com.everis.training.fleet.business.fleet.entity.Vehicle</class>
+        <class>com.everis.training.fleet.business.fleet.entity.Fleet</class>
+        <class>com.everis.training.fleet.business.fleet.entity.Customer</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/fleetdb"/>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>

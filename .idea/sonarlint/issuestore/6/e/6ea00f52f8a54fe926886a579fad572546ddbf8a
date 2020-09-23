@@ -1,7 +1,11 @@
 
 t
 java:S2737"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û8¼ûè—È.
+®
+java:S1130 "‹Remove the declaration of thrown exception 'com.everis.training.fleet.business.exception.InvalidVinException' which is a runtime exception.(›…¡ıÿÿÿÿ8ÏáöãÈ.
+©
+java:S1130-"‹Remove the declaration of thrown exception 'com.everis.training.fleet.business.exception.InvalidVinException' which is a runtime exception.(Í¿¯°8ÏáöãÈ.
 t
 java:S2737%"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û8¼ûè—È.
-t
-java:S2737."WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ö™û8¼ûè—È.
+®
+java:S1130"‹Remove the declaration of thrown exception 'com.everis.training.fleet.business.exception.InvalidVinException' which is a runtime exception.(ÄÅà ûÿÿÿÿ8ÏáöãÈ.

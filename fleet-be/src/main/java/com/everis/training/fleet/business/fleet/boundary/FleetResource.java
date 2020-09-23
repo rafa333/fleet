@@ -2,6 +2,8 @@ package com.everis.training.fleet.business.fleet.boundary;
 
 import com.everis.training.fleet.business.fleet.control.FleetController;
 import com.everis.training.fleet.business.fleet.entity.Fleet;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import javax.ejb.Stateless;
@@ -10,11 +12,14 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+
 @Path("v1/fleets")
 @Produces({ MediaType.APPLICATION_JSON })
 @Consumes({ MediaType.APPLICATION_JSON })
 @Stateless
 public class FleetResource {
+    final static Logger log = LogManager.getLogger(FleetResource.class);
+
     @Inject
     FleetController con;
 
@@ -31,6 +36,7 @@ public class FleetResource {
 
     @POST
     public Response addFleet(Fleet fleet){
+        log.info("The fleet has been added successfully!");
         con.add(fleet);
         return Response.ok().entity("The fleet has been added successfully!").build();
     }
